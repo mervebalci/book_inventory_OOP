@@ -18,11 +18,11 @@ from backend import Database
 # Database is BLUEPRINT.
 
 
-# Creating a CLASS
+# Creating an OBJECT from the CLASS
 database = Database("books.db")
 
 
-# After we say View All, when we click on any entry, it will pop up on the entry section
+# After we say View All, when we click on any entry, all the info about book will pop up on the entry section
 # Without TRY-EXCEPT, when you click on the listbox on empty GUI, python gives you IndexError
 def get_selected_row(event):
     try:
@@ -43,7 +43,7 @@ def get_selected_row(event):
 
 # Creating a VIEW Fumction to call backend (View Function has no parameters)
 def view_command():
-    list.delete(0,END)
+    list.delete(0, END)
     for row in database.view():
         list.insert(END, row)
 
@@ -57,7 +57,7 @@ def search_command():
 
 
 # Creating an INSERT Function to add new entries
-# Again Insert Function in the backend has arguments, so  we need to append GET method
+# Again Insert Function in the backend has arguments, so we need to append GET method
 def add_command():
     database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     list.delete(0, END)
@@ -76,11 +76,11 @@ def update_command():
     database.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 
-# Creating a Window Object
-window=Tk()
+# Creating a WINDOW OBJECT
+window = Tk()
 
 
-# Adding a Title for the program
+# Adding a TITLE to the program
 window.title('Book Store')
 
 
